@@ -8,6 +8,7 @@ use App\Models\Category;
 
 class AdminCategoryComponent extends Component
 {
+    public $category;
     use withPagination;
     public function deleteCategory($id)
     {
@@ -17,10 +18,11 @@ class AdminCategoryComponent extends Component
     }
     public function render()
     {
-        //feathc all the categories model
+        // feathc all the categories model
         
-        $this->$category = Category::All();
+        $category = Category::All();
+        // $category=Category::paginate(5);
         //return array of categories to view
-        return view('livewire.admin.admin-category-component',['categories'=>$category])->layout('layouts.base');
+        return view('livewire.admin.admin-category-component')->layout('layouts.base');
     }
 }
