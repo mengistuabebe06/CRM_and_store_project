@@ -87,11 +87,11 @@
                         </form>
                     </div>												
                 </div>
-            </div><!--end main products area-->		
+            </div><
         </div>
-    </div><!--end row-->
+    </div>
 
-</div><!--end container-->
+</div>
 
 </main>
 </x-guest-layout> -->
