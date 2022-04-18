@@ -19,7 +19,7 @@ class AdminCategoryComponent extends Component
     {
         //feathc all the categories model
         
-        $category = Category::All();
+        $this->$category = Category::All();
         //return array of categories to view
         return view('livewire.admin.admin-category-component',['categories'=>$category])->layout('layouts.base');
     }
