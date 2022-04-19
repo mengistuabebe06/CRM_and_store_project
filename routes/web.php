@@ -2,6 +2,7 @@
 
 // use APP\Http\Livewire\HomeComponent;
 //use App\Http\Livewire;
+use App\Http\Livewire\LoginComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
@@ -34,7 +35,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',HomeComponent::class);
+Route::get('/',LoginComponent::class);
+Route::get('/home',HomeComponent::class);
 
 Route::get('/shop', ShopComponent::class);
 Route::get('/cart',CartComponent::class)->name('product.cart');
