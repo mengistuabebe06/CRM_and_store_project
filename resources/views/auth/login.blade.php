@@ -76,6 +76,14 @@
                                 <label for="frm-login-pass">Password:</label>
                                 <input type="password" id="frm-login-pass" name="password" placeholder="************" require autocomplete="current-password">
                             </fieldset>
+                           
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Role
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>User</li>
+                                    <li>Admin</li>
+                                </ul>
                             
                             <fieldset class="wrap-input">
                                 <label class="remember-field">
@@ -83,6 +91,7 @@
                                 </label>
                                 <a class="link-function left-position" href="{{route('password.request')}}" title="Forgotten password?">Forgotten password?</a>
                             </fieldset>
+
                             <input type="submit" class="btn btn-submit" value="Login" name="submit">
                         </form>
                     </div>												
