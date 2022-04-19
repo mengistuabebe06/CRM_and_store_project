@@ -35,9 +35,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i=0;
+                                @endphp
                                 @foreach($categories as $category)
                                     <tr>
-                                        <td>{{$category->id}}</td>
+                                        <td>{{$i}}</td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->slug}}</td>
                                         <td>
@@ -46,6 +49,9 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @php
+                                    $i+=1;
+                                    @endphp
                             </tbody>
                         </table>
                         {{$categories->links()}}
