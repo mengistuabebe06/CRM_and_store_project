@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Add New Product
+                                Edit Product
                             </div>
                             <div class="col-md 6">
                                 <a href="{{route('admin.products')}}" class="btn btin-success pull-right">All Product</a>
@@ -74,13 +74,13 @@
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
-                                    <!-- <input type="text" placeholder="product Category" class="form-control input-md" wire:model="category"/> -->
+                                    <input type="text" placeholder="product Category" class="form-control input-md" wire:model="category"/>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4"></label>
                                 <div class="col-md-4">
-                                    <Button type="submit"  class="btn btn-primary">submit</Button>
-                                </div>
+                                    <Button type="submit"  class="btn btn-primary">Update</Button>
                                 </div>
                             </div>
                         </form>
