@@ -13,6 +13,6 @@ class AdminProductComponent extends Component
     {
         //fetch a prodcts from database
         $products =Product::paginate(10);
-        return view('livewire.admin.admin-product-component',['products'=>$products])->layout('layouts.admin');
+        return view('livewire.admin.admin-product-component',['products'=>$products])->layout('layouts.adminbase');
     }
 }
