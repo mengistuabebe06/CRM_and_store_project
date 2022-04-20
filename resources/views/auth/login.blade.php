@@ -30,6 +30,14 @@
                                 <input type="password" id="frm-login-pass" name="password" placeholder="************" required autocomplete="current-password">
                             </fieldset>
                             <fieldset class="wrap-input">
+                                <label for="frm-login-pass">Role:</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </fieldset>
+
+                            <fieldset class="wrap-input">
                                 <label class="remember-field">
                                     <input class="frm-input " name="remember" id="rememberme" value="forever" type="checkbox"><span>Remember me</span>
                                 </label>
