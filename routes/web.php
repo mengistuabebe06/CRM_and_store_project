@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',LoginComponent::class);
-Route::get('/home',HomeComponent::class);
+Route::get('/home',HomeComponent::class)->name('home');
 
 Route::get('/shop', ShopComponent::class);
 Route::get('/cart',CartComponent::class)->name('product.cart');
