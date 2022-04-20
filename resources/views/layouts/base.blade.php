@@ -149,12 +149,12 @@
 							<div class="wrap-icon-section minicart">
 								<a href="#" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-									<!-- <div class="left-info">
+									<div class="left-info">
 										@if(Cart::count() >0)
 										<span class="index">{{Cart::count()}} items</span>
 										@endif
 										<span class="title">CART</span>
-									</div> -->
+									</div>
 								</a>
 							</div>
 							<div class="wrap-icon-section show-up-after-1024">

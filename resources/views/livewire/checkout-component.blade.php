@@ -29,7 +29,7 @@
                 </p>
                 <p class="row-in-form">
                     <label for="phone">Phone number<span>*</span></label>
-                    <input  type="number" name="phone" value="" placeholder="10 digits format"wire:model="phonenumber">
+                    <input  type="number" name="phonenumber" value="" placeholder="10 digits format"wire:model="mobile">
                 </p>
                 <p class="row-in-form">
                     <label for="add">line1:</label>
