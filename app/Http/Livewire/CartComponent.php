@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Cart;
-use Illuminate\Support\Faceades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
