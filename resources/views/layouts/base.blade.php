@@ -74,9 +74,9 @@
 											<li class="menu-item menu-item-has-children parent" >
 												<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
-													<!-- <li class="menu-item" >
+													<li class="menu-item" >
 														<a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
-													</li> -->
+													</li>
 													<li class="menu-item" >
 															<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 														</li>
@@ -149,12 +149,12 @@
 							<div class="wrap-icon-section minicart">
 								<a href="#" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-									<div class="left-info">
+									<!-- <div class="left-info">
 										@if(Cart::count() >0)
 										<span class="index">{{Cart::count()}} items</span>
 										@endif
 										<span class="title">CART</span>
-									</div>
+									</div> -->
 								</a>
 							</div>
 							<div class="wrap-icon-section show-up-after-1024">
@@ -354,7 +354,6 @@
 	<script src="{{asset ('assets/js/jquery.countdown.min.js')}}"></script>
 	<script src="{{asset ('assets/js/jquery.sticky.js')}}"></script>
 	<script src="{{asset ('assets/js/functions.js')}}"></script>
-	
 	@livewireScripts
 </body>
 </html>
