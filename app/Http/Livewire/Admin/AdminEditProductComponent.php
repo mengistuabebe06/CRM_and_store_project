@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class AdminEditProductComponent extends Component
 {
@@ -33,7 +35,30 @@ class AdminEditProductComponent extends Component
         $this->product_id = $product->product_id;
         $this->new_image = $product->new_image;
 
+    }
+    public function generateslug()
+    {
+        $this->slug = Str::slug($this->name,'');
+    }
+    public function UpdateProduct()
+    {
+        $product=new Product();
+        $product->name=$this->name;
+        $product->slug=$this->slug;
+        $product->decription=$this->decription;
+        $product->price=$this->price;
+        $product->stock_status=$this->stock_status;
+        $product->feature=$this->feature;
+        $product->quantity=$this->quantity;
+        $product->image=$this->image;
+        $product->category_id=$this->category_id;
 
+        $imagename= Carbon::now()->timestamp.'-'.$$this->image->extentions();
+        $this->image->storeAs('products',$imagename);
+        $product->image=$imagename;
+        $product->category_id=$this->category_id;
+        $product->save();
+        session()->flash('message','product has been created succesfully');
     }
     public function render()
     {

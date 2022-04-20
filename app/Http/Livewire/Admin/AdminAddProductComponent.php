@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use Livewire\Component;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class AdminAddProductComponent extends Component
 {
