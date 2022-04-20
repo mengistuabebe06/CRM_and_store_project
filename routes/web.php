@@ -21,6 +21,7 @@ use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\ThankyouComponent;
 
 
 /*
@@ -46,6 +47,8 @@ Route::get('/cart',CartComponent::class)->name('product.cart');
 Route::get('/checkout',CheckoutComponent::class)->name('product.checkout');
 Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
 Route::get('/product-category/{category_slug}',CategoryComponent::class)->name('product.category');
+Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

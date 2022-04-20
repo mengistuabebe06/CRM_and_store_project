@@ -18,6 +18,9 @@ class CheckoutComponent extends Component
     public $country;
     public $zipcode;
 
+    public $paymentmode;
+    public $thankyou;
+
     public $s_firstname;
     public $s_lastname;
     public $s_email;
@@ -41,7 +44,22 @@ class CheckoutComponent extends Component
             'province'=>'required',
             'country'=>'required',
             'zipcode'=>'required',
+            'paymentmode'=>'required',
         ]);
+        if($this->ship_to_different)
+        {
+            $this->validateOnly([
+                's_firstname'=>'required',
+                's_lastname'=>'required',
+                's_email'=>'required | email',
+                's_mobile'=>'required | numeric',
+                's_line1'=>'required',
+                's_city'=>'required',
+                's_province'=>'required',
+                's_country'=>'required',
+                's_zipcode'=>'required',
+            ]);
+        }
     }
 
     public function placeOrder()
@@ -56,6 +74,7 @@ class CheckoutComponent extends Component
             'province'=>'required',
             'country'=>'required',
             'zipcode'=>'required',
+            'paymentmode'=>'required',
         ]);
 
         $order = new Order();
@@ -87,8 +106,64 @@ class CheckoutComponent extends Component
             $orderitem->quantity=$item->qty;
             $orderitem->save();
         }
+        if($this->ship_to_different)
+        {
+            $this->validate([
+                's_firstname'=>'required',
+                's_lastname'=>'required',
+                's_email'=>'required | email',
+                's_mobile'=>'required | numeric',
+                's_line1'=>'required',
+                's_city'=>'required',
+                's_province'=>'required',
+                's_country'=>'required',
+                's_zipcode'=>'required',
+            ]);
+
+            $shipping = new Shipping();
+            $shipping->order_id=$order_id;
+            $shipping->firstname = $this->s_firstname;
+            $shipping->lastname = $this->s_lastname;
+            $shipping->email = $this->s_email;
+            $shipping->mobile = $this->s_mobile;
+            $shipping->line1 = $this->s_line1;
+            $shipping->line2 = $this->s_line2;
+            $shipping->city = $this->s_city;
+            $shipping->province = $this->s_province;
+            $shipping->country = $this->s_country;
+            $shipping->zipcode = $this->s_zipcode;
+            $shipping->save();
+        }
+        if($this->paymentmode == 'cod')
+        {
+            $transaction = new Transaction();
+            $transaction->user_id=Auth::user()->id;
+            $transaction->order_id=$order_id;
+            $transaction->mode='cod';
+            $transaction->status='pending';
+            $transaction->save();
+        }
+        $this->thankyou=1;
+        Cart::instance('cart')->destroy();
+        session()-forget('checkout');
     }
 
+    public function verifyFOrcheckout()
+    {
+        if(Auth::check())
+        {
+            return redirect()->route('login');
+        }
+        else if($this->thankyou)
+        {
+            return redirect()->route('thankyou');
+        }
+        else if(!session()->get('checkout'))
+        {
+            return redirect()->route('product.cart');
+
+        }
+    }
     public function render()
     {
         return view('livewire.checkout-component')->layout('layouts.base');

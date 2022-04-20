@@ -9,7 +9,7 @@
         </ul>
     </div>
     <div class=" main-content-area">
-    <form>
+    <form wire:submit.prevent="placeOrder">
         <div class="row">
             <div class="col-md-12">
             <div class="wrap-address-billing">
@@ -131,23 +131,25 @@
                 <p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
                 <div class="choose-payment-methods">
                     <label class="payment-method">
-                        <input name="payment-method" id="payment-method-bank" value="cod" type="radio">
+                        <input name="payment-method" id="payment-method-bank" value="cod" type="radio" wire:model="paymentmode">
                         <span>Checkout With Cash On Delivery</span>
                         <span class="payment-desc">Order Now on Delivery</span>
                     </label>
                     <label class="payment-method">
-                        <input name="payment-method" id="payment-method-visa" value="card" type="radio">
+                        <input name="payment-method" id="payment-method-visa" value="card" type="radio" wire:model="paymentmode">
                         <span>Card / Credit</span>
                         <span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
                     </label>
                     <label class="payment-method">
-                        <input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
+                        <input name="payment-method" id="payment-method-paypal" value="paypal" type="radio" wire:model="paymentmode">
                         <span>Paypal</span>
                         <span class="payment-desc">You can pay with your credit</span>
                         <span class="payment-desc">card if you don't have a paypal account</span>
                     </label>
                 </div>
-                <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
+                @if(Session::has('checkout'))
+                <p class="summary-info grand-total"><span>${{Session::get('checkout')['total']}}</span> <span class="grand-total-price">$100.00</span></p>
+                @endif
                 <button type="submit" class="btn btn-medium">Place order now</button>
             </div>
             <div class="summary-item shipping-method">
