@@ -126,9 +126,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @php
+                            $id=0;
+                            @endphp
                             @foreach ($categories as $category)
                                 <tr>
-                                    <td>{{$category->id}}</td>
+                                    <td>{{$id}}</td>
                                     <td>{{$category->name}}</td>
                                     <td>{{$category->slug}}</td>
                                     <td>
@@ -137,7 +140,9 @@
                                     </td>
                                 </tr>
                              @endforeach
-                                
+                             @php
+                            $id++;
+                            @endphp
                             </tbody>
                         </table>
                     </div>
@@ -160,9 +165,9 @@
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a href="https://htmlcodex.com">Mengistu</a>
                         </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                       
                         </div>
                     </div>
                 </div>

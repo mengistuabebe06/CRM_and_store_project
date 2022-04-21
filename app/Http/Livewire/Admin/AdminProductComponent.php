@@ -8,6 +8,7 @@ use Livewire\withPagination;
 
 class AdminProductComponent extends Component
 {
+    public $products = [];
     use withPagination;
     public function render()
     {
