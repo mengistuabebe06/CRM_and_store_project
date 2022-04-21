@@ -73,7 +73,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
     // Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
-    //Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category',AdminViewCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add',AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}',AdminEditCategoryComponent::class)->name('admin.editcategory');

@@ -21,7 +21,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel-body">
+                  <div class="panel-body">
                         @if(Session::has('delete_message'))
                             <div class="alert alert-success" role="role">{{Session::get('delete_message')}}</div>
                         @endif
@@ -38,7 +38,7 @@
                                 @php
                                     $i=0;
                                 @endphp
-                                @foreach($categories as $category)
+                                @foreach ($categories as $category)
                                     <tr>
                                         <td>{{$i}}</td>
                                         <td>{{$category->name}}</td>

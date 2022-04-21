@@ -20,11 +20,11 @@ class AdminCategoryComponent extends Component
     {
         // feathc all the categories model
         
-        $this->$categories = Category::all();
-        echo "categories name isn :" ;
-        echo ($categories->name);
-        // $category=Category::paginate(5);
+        // $categories = Category::all();
+        // echo "categories name isn :" ;
+        // echo ($categories->name);
+        $categories=Category::paginate(5);
         //return array of categories to view
-        return view('livewire.admin.admin-category-component')->layout('layouts.base');
+        return view('livewire.admin.admin-category-component',['categories'=>$categories])->layout('layouts.base');
     }
 }
