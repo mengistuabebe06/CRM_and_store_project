@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route('admin.dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     
                     <a href="{{route('admin.products')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>All Products</a>
                     <a href="{{route('admin.categories')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Categories</a>
