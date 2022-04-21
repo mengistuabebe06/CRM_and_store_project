@@ -269,16 +269,7 @@
 
 					<div class="row">
 
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">We Using Safe Payments:</h3>
-								<div class="item-content">
-									<div class="wrap-list-item wrap-gallery">
-										<img src="assets/images/payment.png" style="max-width: 260px;">
-									</div>
-								</div>
-							</div>
-						</div>
+
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
