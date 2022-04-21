@@ -105,9 +105,9 @@
             <!-- Sale & Revenue Start -->
 <div>
     <!-- add categories  -->
-    <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="container-fluid pt-0 px-0">
+                <div class="bg-light text-center rounded p-0">
+                    <div class="d-flex align-items-center justify-content-between mb-0">
                         
                         <a href="">Add New Product</a>
                     </div>
@@ -122,16 +122,18 @@
                         @if(Session::has('message'))
                             <div class="alert alert-sucess" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form class="form-group" wire:submit.prevent="addProduct">
+                        <form  wire:submit.prevent="addProduct">
+                                               
                             <div class="form-group">
-                                <label class="col-md-4">Product Name</label>
                                 <div class="col-md-4">
+                                <label >Product Name</label>
                                     <input type="text" placeholder="product Name" class="form-control input-md" wire:model="name" wire:keyup="generateslug"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product Image</label>
+                                
                                 <div class="col-md-4">
+                                <label class="col-md-4">Product Image</label>
                                     <input type="file"  class="input-file" wire:model="image"/>
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width=""120/>
@@ -139,8 +141,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product Stock</label>
+                                
                                 <div class="col-md-4">
+                                <label class="col-md-4">Product Stock</label>
                                     <select class="form-control" wire:model="stock">
                                         <option value="InStock">InStock</option>
                                         <option value="OutStock">OutStock</option>
@@ -149,8 +152,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product feature</label>
                                 <div class="col-md-4">
+                                <label class="col-md-4">Product feature</label>
                                     <select class="form-control">
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
@@ -159,8 +162,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product Quantity</label>
+                                
                                 <div class="col-md-4">
+                                <label class="col-md-4">Product Quantity</label>
                                     <input type="text" placeholder="Product Quantity" class="form-control input-md" wire:model="quantity"/>
                                 </div>
                             </div>
@@ -171,8 +175,9 @@
                                 </div>
                             </div> -->
                             <div class="form-group">
-                                <label class="col-md-4">Product Category</label>
+                                
                                 <div class="col-md-4">
+                                <label class="col-md-4">Product Category</label>
                                     <select class="form-control" wire:model="category_id">
                                         <option value="">Select Categories</option>
                                         @foreach($categories as $category)
