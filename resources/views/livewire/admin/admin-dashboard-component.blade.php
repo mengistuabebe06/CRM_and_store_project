@@ -180,7 +180,7 @@
                         <a href="">Show All Category</a>
                     </div>
                     <div class="col-md-0">
-                                <a href="{{route('admin.addcategory')}}" class="btn btin-success pull-right">Add New</a>
+                                <a href="{{route('admin.addcategory')}}" class="btn btn-primary pull-right">Add New</a>
                             </div>
                     <div class="table-responsive">
                         @if(Session::has('delete_message'))
