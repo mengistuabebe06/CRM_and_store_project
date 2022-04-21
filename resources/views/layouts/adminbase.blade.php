@@ -66,8 +66,9 @@
                     <a href="{{route('admin.products')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>All Products</a>
                     <a href="{{route('admin.categories')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Categories</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>View Orders</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages </a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <ul>
 								</li>

@@ -85,7 +85,7 @@
                         <li class="menu-item menu-item-has-children parent" >
 							<ul class="submenu curency" >
 								<li class="menu-item" >
-									<a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+									<a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
 								</li>
 								<li class="menu-item" >
 									<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -177,67 +177,38 @@
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
+                        <a href="">Show All Category</a>
                     </div>
+                    <div class="col-md-0">
+                                <a href="{{route('admin.addcategory')}}" class="btn btin-success pull-right">Add New</a>
+                            </div>
                     <div class="table-responsive">
+                        @if(Session::has('delete_message'))
+                            <div class="alert alert-success" role="role">{{Session::get('delete_message')}}</div>
+                        @endif
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
                                     <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Category Id</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Category Slug</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach ($categories as $category)
                                 <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->name}}</td>
+                                    <td>{{$category->slug}}</td>
+                                    <td>
+                                        <a href="{{'admin.editcategory',['category_slug'=>$category->slug]}}"><i class="fa fa-edit fa-2x"></i></a>
+                                        <a href="#" wire:click.prevent="deleteCategory({{$category->id}})" style="margin: left 10px;"><i class="fa fa-times fa-2x text danger"></i></a>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
+                             @endforeach
+                                
                             </tbody>
                         </table>
                     </div>
